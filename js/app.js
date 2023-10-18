@@ -60,11 +60,8 @@ const tokyo = {
 
 tokyo.cookiesPurchased();
 
-const tokyoDiv = document.createElement("div");
-document.body.appendChild(tokyoDiv);
-
 const tokyoList = document.createElement("ul");
-document.body.appendChild(tokyoList);
+document.getElementById(`tokyo`).appendChild(tokyoList);
 
 for (let i = 0; i < tokyo.cookiesPerHour.length; i++) {
   const formattedHour = (i + 6) % 12 === 0
@@ -101,11 +98,8 @@ const dubai = {
 
 dubai.cookiesPurchased();
 
-const dubaiDiv = document.createElement("div");
-document.body.appendChild(dubaiDiv);
-
 const dubaiList = document.createElement("ul");
-document.body.appendChild(dubaiList);
+document.getElementById(`dubai`).appendChild(dubaiList);
 
 for (let i = 0; i < dubai.cookiesPerHour.length; i++) {
   const formattedHour = (i + 6) % 12 === 0
@@ -142,11 +136,8 @@ const paris = {
 
 paris.cookiesPurchased();
 
-const parisDiv = document.createElement("div");
-document.body.appendChild(parisDiv);
-
 const parisList = document.createElement("ul");
-document.body.appendChild(parisList);
+document.getElementById(`paris`).appendChild(parisList);
 
 for (let i = 0; i < paris.cookiesPerHour.length; i++) {
   const formattedHour = (i + 6) % 12 === 0
@@ -183,11 +174,8 @@ const lima = {
 
 lima.cookiesPurchased();
 
-const limaDiv = document.createElement("div");
-document.body.appendChild(limaDiv);
-
 const limaList = document.createElement("ul");
-document.body.appendChild(limaList);
+document.getElementById(`lima`).appendChild(limaList);
 
 for (let i = 0; i < lima.cookiesPerHour.length; i++) {
   const formattedHour = (i + 6) % 12 === 0
