@@ -1,3 +1,4 @@
+
 const seattle = {
   minCust: 23, 
   maxCust: 65,
@@ -21,11 +22,8 @@ const seattle = {
 
 seattle.cookiesPurchased();
 
-const seattleDiv = document.createElement("div");
-document.body.appendChild(seattleDiv);
-
 const seattleList = document.createElement("ul");
-document.body.appendChild(seattleList);
+document.getElementById(`seattle`).appendChild(seattleList);
 
 for (let i = 0; i < seattle.cookiesPerHour.length; i++) {
   const formattedHour = (i + 6) % 12 === 0
