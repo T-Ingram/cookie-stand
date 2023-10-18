@@ -11,7 +11,7 @@ const seattle = {
   },
 
   cookiesPurchased: function() {
-    for (let hour = 0; hour<24; hour++) {
+    for (let hour = 6; hour <= 19; hour++) {
       let customers = this.custPerHr();
       let cookiesPurchased = Math.ceil(customers * this.avgSales);
       this.cookiesPerHour.push(cookiesPurchased);
@@ -21,12 +21,21 @@ const seattle = {
 
 seattle.cookiesPurchased();
 
+const seattleDiv = document.createElement("div");
+document.body.appendChild(seattleDiv);
+
 const seattleList = document.createElement("ul");
 document.body.appendChild(seattleList);
 
 for (let i = 0; i < seattle.cookiesPerHour.length; i++) {
+  const formattedHour = (i + 6) % 12 === 0
+  ? "12pm"
+  : (i + 6 >= 12)
+    ? `${i + 6 - 12}pm`
+    : `${i + 6}am`;
+
   const listItem = document.createElement("li");
-  listItem.textContent = `Hour ${i + 1}: ${seattle.cookiesPerHour[i]} cookies`;
+  listItem.textContent = `${formattedHour}: ${seattle.cookiesPerHour[i]} cookies`;
   seattleList.appendChild(listItem);
 }
 
@@ -43,7 +52,7 @@ const tokyo = {
   },
 
   cookiesPurchased: function() {
-    for (let hour = 0; hour<24; hour++) {
+    for (let hour = 6; hour <= 19; hour++) {
       let customers = this.custPerHr();
       let cookiesPurchased = Math.ceil(customers * this.avgSales);
       this.cookiesPerHour.push(cookiesPurchased);
@@ -53,12 +62,21 @@ const tokyo = {
 
 tokyo.cookiesPurchased();
 
+const tokyoDiv = document.createElement("div");
+document.body.appendChild(tokyoDiv);
+
 const tokyoList = document.createElement("ul");
 document.body.appendChild(tokyoList);
 
 for (let i = 0; i < tokyo.cookiesPerHour.length; i++) {
+  const formattedHour = (i + 6) % 12 === 0
+  ? "12pm"
+  : (i + 6 >= 12)
+    ? `${i + 6 - 12}pm`
+    : `${i + 6}am`;
+
   const listItem = document.createElement("li");
-  listItem.textContent = `Hour ${i + 1}: ${tokyo.cookiesPerHour[i]} cookies`;
+  listItem.textContent = `${formattedHour}: ${tokyo.cookiesPerHour[i]} cookies`;
   tokyoList.appendChild(listItem);
 }
 
@@ -75,7 +93,7 @@ const dubai = {
   },
 
   cookiesPurchased: function() {
-    for (let hour = 0; hour<24; hour++) {
+    for (let hour = 6; hour <= 19; hour++) {
       let customers = this.custPerHr();
       let cookiesPurchased = Math.ceil(customers * this.avgSales);
       this.cookiesPerHour.push(cookiesPurchased);
@@ -85,12 +103,21 @@ const dubai = {
 
 dubai.cookiesPurchased();
 
+const dubaiDiv = document.createElement("div");
+document.body.appendChild(dubaiDiv);
+
 const dubaiList = document.createElement("ul");
 document.body.appendChild(dubaiList);
 
 for (let i = 0; i < dubai.cookiesPerHour.length; i++) {
+  const formattedHour = (i + 6) % 12 === 0
+  ? "12pm"
+  : (i + 6 >= 12)
+    ? `${i + 6 - 12}pm`
+    : `${i + 6}am`;
+
   const listItem = document.createElement("li");
-  listItem.textContent = `Hour ${i + 1}: ${dubai.cookiesPerHour[i]} cookies`;
+  listItem.textContent = `${formattedHour}: ${dubai.cookiesPerHour[i]} cookies`;
   dubaiList.appendChild(listItem);
 }
 
@@ -107,7 +134,7 @@ const paris = {
   },
 
   cookiesPurchased: function() {
-    for (let hour = 0; hour<24; hour++) {
+    for (let hour = 6; hour <= 19; hour++) {
       let customers = this.custPerHr();
       let cookiesPurchased = Math.ceil(customers * this.avgSales);
       this.cookiesPerHour.push(cookiesPurchased);
@@ -117,12 +144,21 @@ const paris = {
 
 paris.cookiesPurchased();
 
+const parisDiv = document.createElement("div");
+document.body.appendChild(parisDiv);
+
 const parisList = document.createElement("ul");
 document.body.appendChild(parisList);
 
 for (let i = 0; i < paris.cookiesPerHour.length; i++) {
+  const formattedHour = (i + 6) % 12 === 0
+  ? "12pm"
+  : (i + 6 >= 12)
+    ? `${i + 6 - 12}pm`
+    : `${i + 6}am`;
+
   const listItem = document.createElement("li");
-  listItem.textContent = `Hour ${i + 1}: ${paris.cookiesPerHour[i]} cookies`;
+  listItem.textContent = `${formattedHour}: ${paris.cookiesPerHour[i]} cookies`;
   parisList.appendChild(listItem);
 }
 
@@ -139,7 +175,7 @@ const lima = {
   },
 
   cookiesPurchased: function() {
-    for (let hour = 0; hour<24; hour++) {
+    for (let hour = 6; hour <= 19; hour++) {
       let customers = this.custPerHr();
       let cookiesPurchased = Math.ceil(customers * this.avgSales);
       this.cookiesPerHour.push(cookiesPurchased);
@@ -149,11 +185,20 @@ const lima = {
 
 lima.cookiesPurchased();
 
+const limaDiv = document.createElement("div");
+document.body.appendChild(limaDiv);
+
 const limaList = document.createElement("ul");
 document.body.appendChild(limaList);
 
 for (let i = 0; i < lima.cookiesPerHour.length; i++) {
+  const formattedHour = (i + 6) % 12 === 0
+  ? "12pm"
+  : (i + 6 >= 12)
+    ? `${i + 6 - 12}pm`
+    : `${i + 6}am`;
+
   const listItem = document.createElement("li");
-  listItem.textContent = `Hour ${i + 1}: ${lima.cookiesPerHour[i]} cookies`;
+  listItem.textContent = `${formattedHour}: ${lima.cookiesPerHour[i]} cookies`;
   limaList.appendChild(listItem);
 }
