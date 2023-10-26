@@ -40,16 +40,15 @@ const dubai = new Store('Dubai', 11, 38, 3.7);
 const paris = new Store('Paris', 20, 38, 2.3);
 const lima = new Store('Lima', 2, 16, 4.6);
 
-//***table***
+//***TABLE***
 // referenced chatgpt for help
 function createTable() {
   let table = document.createElement('table');
+  table.classList.add('cookie-table');
   document.body.appendChild(table);
 
-  // Created single header row for both hours and stores
   let headerRow = document.createElement('tr');
 
-  // Created a blank cell to represent the empty space before the time columns
   let blankCell = document.createElement('th');
   headerRow.appendChild(blankCell);
 
@@ -61,7 +60,7 @@ function createTable() {
     headerRow.appendChild(th);
   }
 
-  // Add the "Daily Location Total" column header
+  // "Daily Location Total" column header
   let dailyTotalHeader = document.createElement('th');
   dailyTotalHeader.innerText = 'Daily Location Total';
   headerRow.appendChild(dailyTotalHeader);
@@ -77,18 +76,17 @@ function createTable() {
     cityCell.innerText = store.location;
     row.appendChild(cityCell);
 
-    let dailyTotal = 0; // Initialize the daily total
+    let dailyTotal = 0;
 
     for (let cookies of store.cookiesPerHour) {
       let cookiesSold = document.createElement('td');
       cookiesSold.innerText = cookies;
       row.appendChild(cookiesSold);
 
-      // Add the hourly total to the daily total
       dailyTotal += cookies;
     }
 
-    // Add the "Daily Location Total" column for each store
+    // "Daily Location Total" column for each store
     let dailyTotalCell = document.createElement('td');
     dailyTotalCell.innerText = dailyTotal;
     row.appendChild(dailyTotalCell);
@@ -96,16 +94,16 @@ function createTable() {
     table.appendChild(row);
   }
 
-  // Add the "Totals" row to display hourly totals across all stores
+  // Display hourly totals across all stores
   let totalsRow = document.createElement('tr');
   let totalsCell = document.createElement('td');
   totalsCell.innerText = 'Totals';
   totalsRow.appendChild(totalsCell);
 
-  // Initialize an array to store hourly totals
+  // Hourly totals array
   const hourlyTotals = new Array(hoursArray.length).fill(0);
 
-  // Calculate the hourly totals across all stores
+  // Hourly totals across all stores
   for (let store of stores) {
     for (let i = 0; i < hoursArray.length; i++) {
       hourlyTotals[i] += store.cookiesPerHour[i];
@@ -119,7 +117,7 @@ function createTable() {
     totalsRow.appendChild(totalCell);
   }
 
-  // Calculate and add the total of "Daily Location Total" across all stores
+  // Total of "Daily Location Total" across all stores
   let dailyTotalSum = 0;
   for (let store of stores) {
     dailyTotalSum += store.cookiesPerHour.reduce((acc, val) => acc + val, 0);
