@@ -2,13 +2,13 @@
 .cookie-table {
   border-collapse:collapse;
   width: 50%;
-  margin: 20px;
+  margin: 1vw;
 }
 
 /* Apply styles to table headers (th) */
 .cookie-table th {
   border: 1px solid; color: black;
-  padding: 8px;
+  padding: .5vw;
   text-align: center;
   background-color: lightgrey;
 }
@@ -16,6 +16,6 @@
 /* Apply styles to table cells (td) */
 .cookie-table td {
   border: 1px solid; color: black;
-  padding: 8px;
+  padding: .5vw;
   text-align: center;
 }
