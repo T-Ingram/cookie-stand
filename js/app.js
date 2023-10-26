@@ -60,7 +60,12 @@ function createTable() {
     th.innerText = hour;
     headerRow.appendChild(th);
   }
-  
+
+  // Add the "Daily Location Total" column header
+  let dailyTotalHeader = document.createElement('th');
+  dailyTotalHeader.innerText = 'Daily Location Total';
+  headerRow.appendChild(dailyTotalHeader);
+
   table.appendChild(headerRow);
 
   // Create rows for each store and display city and cookies sold per hour
@@ -72,13 +77,58 @@ function createTable() {
     cityCell.innerText = store.location;
     row.appendChild(cityCell);
 
+    let dailyTotal = 0; // Initialize the daily total
+
     for (let cookies of store.cookiesPerHour) {
       let cookiesSold = document.createElement('td');
       cookiesSold.innerText = cookies;
       row.appendChild(cookiesSold);
+
+      // Add the hourly total to the daily total
+      dailyTotal += cookies;
     }
+
+    // Add the "Daily Location Total" column for each store
+    let dailyTotalCell = document.createElement('td');
+    dailyTotalCell.innerText = dailyTotal;
+    row.appendChild(dailyTotalCell);
+
     table.appendChild(row);
   }
+
+  // Add the "Totals" row to display hourly totals across all stores
+  let totalsRow = document.createElement('tr');
+  let totalsCell = document.createElement('td');
+  totalsCell.innerText = 'Totals';
+  totalsRow.appendChild(totalsCell);
+
+  // Initialize an array to store hourly totals
+  const hourlyTotals = new Array(hoursArray.length).fill(0);
+
+  // Calculate the hourly totals across all stores
+  for (let store of stores) {
+    for (let i = 0; i < hoursArray.length; i++) {
+      hourlyTotals[i] += store.cookiesPerHour[i];
+    }
+  }
+
+  // Add hourly total cells to the "Totals" row
+  for (let total of hourlyTotals) {
+    let totalCell = document.createElement('td');
+    totalCell.innerText = total;
+    totalsRow.appendChild(totalCell);
+  }
+
+  // Calculate and add the total of "Daily Location Total" across all stores
+  let dailyTotalSum = 0;
+  for (let store of stores) {
+    dailyTotalSum += store.cookiesPerHour.reduce((acc, val) => acc + val, 0);
+  }
+  let dailyTotalSumCell = document.createElement('td');
+  dailyTotalSumCell.innerText = dailyTotalSum;
+  totalsRow.appendChild(dailyTotalSumCell);
+
+  table.appendChild(totalsRow);
 }
 
 createTable();
