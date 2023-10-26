@@ -19,7 +19,7 @@ function Store(location, minCust, maxCust, avgSales) {
   };
 
   this.cookiesPurchased = function() {
-     for (let hour = 0; hour <= 14; hour++) {
+     for (let hour = 0; hour <= 13; hour++) {
        let customers = this.custPerHr();
        let cookiesPurchased = Math.ceil(customers * this.avgSales);
        
@@ -49,19 +49,23 @@ function createTable() {
   // Append the table to the document body
   document.body.appendChild(table);
 
-  // Create the table row for headings
-  let rowHeading = document.createElement('tr');
+  // Create the single header row for both hours and stores
+  let headerRow = document.createElement('tr');
+
+  // Create a blank cell to represent the empty space before the time columns
+  let blankCell = document.createElement('th');
+  headerRow.appendChild(blankCell);
 
   // Loop through hoursArray to create and append table headings (th)
   for (let i = 0; i < hoursArray.length; i++) {
     const hour = hoursArray[i];
     let th = document.createElement('th');
     th.innerText = hour;
-    rowHeading.appendChild(th);
+    headerRow.appendChild(th);
   }
 
-  // Append the heading row to the table
-  table.appendChild(rowHeading);
+  // Append the header row to the table
+  table.appendChild(headerRow);
 
   // Create rows for each store and display city and cookies sold per hour
   const stores = [seattle, tokyo, dubai, paris, lima];
