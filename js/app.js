@@ -41,18 +41,15 @@ const paris = new Store('Paris', 20, 38, 2.3);
 const lima = new Store('Lima', 2, 16, 4.6);
 
 //***table***
-
+// referenced chatgpt for help
 function createTable() {
-  // Create the table element
   let table = document.createElement('table');
-
-  // Append the table to the document body
   document.body.appendChild(table);
 
-  // Create the single header row for both hours and stores
+  // Created single header row for both hours and stores
   let headerRow = document.createElement('tr');
 
-  // Create a blank cell to represent the empty space before the time columns
+  // Created a blank cell to represent the empty space before the time columns
   let blankCell = document.createElement('th');
   headerRow.appendChild(blankCell);
 
@@ -63,8 +60,7 @@ function createTable() {
     th.innerText = hour;
     headerRow.appendChild(th);
   }
-
-  // Append the header row to the table
+  
   table.appendChild(headerRow);
 
   // Create rows for each store and display city and cookies sold per hour
@@ -77,15 +73,12 @@ function createTable() {
     row.appendChild(cityCell);
 
     for (let cookies of store.cookiesPerHour) {
-      let cookiesSoldCell = document.createElement('td');
-      cookiesSoldCell.innerText = cookies;
-      row.appendChild(cookiesSoldCell);
+      let cookiesSold = document.createElement('td');
+      cookiesSold.innerText = cookies;
+      row.appendChild(cookiesSold);
     }
-
-    // Append the row to the table
     table.appendChild(row);
   }
 }
 
-// Call the createTable function to generate the table with headings and store data
 createTable();
