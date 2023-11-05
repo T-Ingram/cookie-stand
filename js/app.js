@@ -95,7 +95,7 @@ function createTable() {
   // Display hourly totals across all stores
   let totalsRow = document.createElement('tr');
   let totalsCell = document.createElement('td');
-  totalsCell.innerText = 'Hourly Totals';
+  totalsCell.innerText = 'Hourly Totals For All Stores';
   totalsRow.appendChild(totalsCell);
 
   // Hourly totals array
