@@ -11,7 +11,6 @@ function Store(location, minCust, maxCust, avgSales) {
   this.avgSales = avgSales;
   this.cookiesPerHour = [];
   
-
   this.custPerHr = function() {
     let min = Math.ceil(this.minCust);
     let max = Math.floor(this.maxCust);
@@ -31,7 +30,6 @@ function Store(location, minCust, maxCust, avgSales) {
   this.cookiesPurchased();
   this.render = function () {
   }
-
 } 
 
 const seattle = new Store('Seattle', 23, 65, 6.3);
@@ -97,7 +95,7 @@ function createTable() {
   // Display hourly totals across all stores
   let totalsRow = document.createElement('tr');
   let totalsCell = document.createElement('td');
-  totalsCell.innerText = 'Totals';
+  totalsCell.innerText = 'Hourly Totals';
   totalsRow.appendChild(totalsCell);
 
   // Hourly totals array
