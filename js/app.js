@@ -4,13 +4,17 @@ const table = document.getElementById('cookie-table');
 
 
 // **** CONSTRUCTOR FUNCTION ****
-function Store(location, minCust, maxCust, avgSales) {
+function Store(location, minCust, maxCust, avgSales, address, hours, contactInfo) {
   this.location = location;
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgSales = avgSales;
   this.cookiesPerHour = [];
+  this.address = address;
+  this.hours = hours;
+  this.contactInfo = contactInfo;
   
+
   this.custPerHr = function() {
     let min = Math.ceil(this.minCust);
     let max = Math.floor(this.maxCust);
@@ -30,13 +34,14 @@ function Store(location, minCust, maxCust, avgSales) {
   this.cookiesPurchased();
   this.render = function () {
   }
+
 } 
 
-const seattle = new Store('Seattle', 23, 65, 6.3);
-const tokyo = new Store('Tokyo', 3, 24, 1.2);
-const dubai = new Store('Dubai', 11, 38, 3.7);
-const paris = new Store('Paris', 20, 38, 2.3);
-const lima = new Store('Lima', 2, 16, 4.6);
+const seattle = new Store('Seattle', 23, 65, 6.3, '1234 Main St. Seattle, Washington 98101', '6:00am-7:00pm', 'SeattleManager@gmail.com');
+const tokyo = new Store('Tokyo', 3, 24, 1.2, '5678 East Blvd Tokyo, Japan 100-0000', '6:00am-7:00pm', 'TokyoManager@gmail.com');
+const dubai = new Store('Dubai', 11, 38, 3.7, '1122 North St. Dubai, United Arab Emirates 00000', '6:00am-7:00pm', 'DubaiManager@gmail.com');
+const paris = new Store('Paris', 20, 38, 2.3, '3344 South St. Paris, France 70123', '6:00am-7:00pm', 'ParisManager@gmail.com');
+const lima = new Store('Lima', 2, 16, 4.6, '5566 West St. Lima, Peru 02002', '6:00am-7:00pm', 'LimaManager@gmail.com');
 
 //***TABLE***
 // referenced chatgpt for help
@@ -95,7 +100,7 @@ function createTable() {
   // Display hourly totals across all stores
   let totalsRow = document.createElement('tr');
   let totalsCell = document.createElement('td');
-  totalsCell.innerText = 'Hourly Totals For All Stores';
+  totalsCell.innerText = 'Totals';
   totalsRow.appendChild(totalsCell);
 
   // Hourly totals array
@@ -127,4 +132,36 @@ function createTable() {
   table.appendChild(totalsRow);
 }
 
-createTable();
+function locationInfo() {
+  const stores = [seattle, tokyo, dubai, paris, lima];
+  let main = document.createElement('main');
+  document.body.appendChild(main);
+
+  for (let store of stores) {
+    let section = document.createElement('section'); //create section element
+    main.appendChild(section); //add section element to main
+
+    let locationName = document.createElement('h2'); //create new element
+    locationName.innerText = store.location; //assign name to element
+    section.appendChild(locationName); //add element to section
+
+    let locationAddress = document.createElement('p'); //create new element
+    locationAddress.innerText = store.address; //assign address to element
+    section.appendChild(locationAddress); //add element to section
+
+    let locationHours = document.createElement('p'); //create new element
+    locationHours.innerText = store.hours; //assign hours to element
+    section.appendChild(locationHours); //add element to section
+
+    let locContactInfo = document.createElement('p'); //create new element
+    locContactInfo.innerText = store.contactInfo; //assign contact info to element
+    section.appendChild(locContactInfo); //add element to section
+  }
+}
+
+const pathName = window.location.pathname;
+if (pathName === "/index.html" || pathName === "/") {
+  locationInfo();
+} else if (pathName === "/sales.html") {
+  createTable();
+}
