@@ -159,9 +159,16 @@ function locationInfo() {
   }
 }
 
+//const pathName = window.location.pathname;
+//if (pathName === "/index.html" || pathName === "/") {
+  //locationInfo();
+//} else if (pathName === "/sales.html") {
+  //createTable();
+//}
+
 const pathName = window.location.pathname;
-if (pathName === "/index.html" || pathName === "/") {
+if (pathName === "/cookie-stand/index.html" || pathName === "/cookie-stand/") {
   locationInfo();
-} else if (pathName === "/sales.html") {
+} else if (pathName === "/cookie-stand/sales.html") {
   createTable();
 }
