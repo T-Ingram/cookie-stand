@@ -2,7 +2,6 @@ const hoursArray = ["6:00am", "7:00am", "8:00am", "9:00am", "10:00am", "11:00am"
 
 const table = document.getElementById('cookie-table');
 
-
 // **** CONSTRUCTOR FUNCTION ****
 function Store(location, minCust, maxCust, avgSales, address, hours, contactInfo) {
   this.location = location;
@@ -43,11 +42,15 @@ const dubai = new Store('Dubai', 11, 38, 3.7, '1122 North St. Dubai, United Arab
 const paris = new Store('Paris', 20, 38, 2.3, '3344 South St. Paris, France 70123', '6:00am-7:00pm', 'ParisManager@gmail.com');
 const lima = new Store('Lima', 2, 16, 4.6, '5566 West St. Lima, Peru 02002', '6:00am-7:00pm', 'LimaManager@gmail.com');
 
+// Create rows for each store and display city and cookies sold per hour
+const stores = [seattle, tokyo, dubai, paris, lima];
+
 //***TABLE***
 // referenced chatgpt for help
 function createTable() {
   let table = document.createElement('table');
   table.classList.add('cookie-table');
+  table.id = 'cookie-table';
   document.body.appendChild(table);
 
   let headerRow = document.createElement('tr');
@@ -69,9 +72,6 @@ function createTable() {
   headerRow.appendChild(dailyTotalHeader);
 
   table.appendChild(headerRow);
-
-  // Create rows for each store and display city and cookies sold per hour
-  const stores = [seattle, tokyo, dubai, paris, lima];
 
   for (let store of stores) {
     let row = document.createElement('tr');
@@ -97,39 +97,43 @@ function createTable() {
     table.appendChild(row);
   }
 
-  // Display hourly totals across all stores
-  let totalsRow = document.createElement('tr');
-  let totalsCell = document.createElement('td');
-  totalsCell.innerText = 'Totals';
-  totalsRow.appendChild(totalsCell);
+  createHourlyTotals(table);
+}
 
-  // Hourly totals array
-  const hourlyTotals = new Array(hoursArray.length).fill(0);
+function createHourlyTotals(table) {
 
-  // Hourly totals across all stores
-  for (let store of stores) {
-    for (let i = 0; i < hoursArray.length; i++) {
-      hourlyTotals[i] += store.cookiesPerHour[i];
+    // Display hourly totals across all stores
+    let totalsRow = document.createElement('tr');
+    let totalsCell = document.createElement('td');
+    totalsCell.innerText = 'Totals';
+    totalsRow.appendChild(totalsCell);
+  
+    // Hourly totals array
+    const hourlyTotals = new Array(hoursArray.length).fill(0);
+    // Hourly totals across all stores
+    for (let store of stores) {
+      for (let i = 0; i < hoursArray.length; i++) {
+        hourlyTotals[i] += store.cookiesPerHour[i];
+      }
     }
-  }
-
-  // Add hourly total cells to the "Totals" row
-  for (let total of hourlyTotals) {
-    let totalCell = document.createElement('td');
-    totalCell.innerText = total;
-    totalsRow.appendChild(totalCell);
-  }
-
-  // Total of "Daily Location Total" across all stores
-  let dailyTotalSum = 0;
-  for (let store of stores) {
-    dailyTotalSum += store.cookiesPerHour.reduce((acc, val) => acc + val, 0);
-  }
-  let dailyTotalSumCell = document.createElement('td');
-  dailyTotalSumCell.innerText = dailyTotalSum;
-  totalsRow.appendChild(dailyTotalSumCell);
-
-  table.appendChild(totalsRow);
+  
+    // Add hourly total cells to the "Totals" row
+    for (let total of hourlyTotals) {
+      let totalCell = document.createElement('td');
+      totalCell.innerText = total;
+      totalsRow.appendChild(totalCell);
+    }
+  
+    // Total of "Daily Location Total" across all stores
+    let dailyTotalSum = 0;
+    for (let store of stores) {
+      dailyTotalSum += store.cookiesPerHour.reduce((acc, val) => acc + val, 0);
+    }
+    let dailyTotalSumCell = document.createElement('td');
+    dailyTotalSumCell.innerText = dailyTotalSum;
+    totalsRow.appendChild(dailyTotalSumCell);
+  
+    table.appendChild(totalsRow);
 }
 
 function locationInfo() {
@@ -158,6 +162,31 @@ function locationInfo() {
     section.appendChild(locContactInfo); //add element to section
   }
 }
+
+function newLocation(event) {
+  event.preventDefault(); //Prevent refresh of page
+  const table = document.getElementById('cookie-table');//Assign cookie-table to "table" variable
+  const locForm = document.getElementById('new-store-form');//Passed form to locform
+
+  //Create new location object with form data
+  let locName = locForm.elements['location'].value;
+  let minCust = locForm.elements['min-customers'].value;//pulls from form data
+  let maxCust = locForm.elements['max-customers'].value;
+  let avgCookies = locForm.elements['max-customers'].value;
+  const newestStore = new Store(locName, minCust, maxCust, avgCookies, '1', '1', '1');
+  stores.push(newestStore);
+  //Remove 'totals' row from table
+  table.deleteRow(-1);
+  //Insert new object into table
+
+  //Create new 'totals' row
+  createHourlyTotals(table);
+
+  //Clear form
+
+}
+
+document.querySelector('button').addEventListener("click", newLocation);
 
 // ENABLE TO GET VSCODE TO PULL CORRECT FILES
 const pathName = window.location.pathname;
