@@ -209,17 +209,17 @@ function newLocation(event) {
 
 document.querySelector('button').addEventListener("click", newLocation);
 
-// ENABLE TO GET VSCODE TO PULL CORRECT FILES
-const pathName = window.location.pathname;
-if (pathName === "/index.html" || pathName === "/") {
-  locationInfo();
-} else if (pathName === "/sales.html") {
-  createTable();
-}
-// ENABLE TO GET GITHUB TO PULL CORRECT FILES
+ // ENABLE TO GET VSCODE TO PULL CORRECT FILES
 // const pathName = window.location.pathname;
-// if (pathName === "/cookie-stand/index.html" || pathName === "/cookie-stand/") {
+// if (pathName === "/index.html" || pathName === "/") {
 //   locationInfo();
-// } else if (pathName === "/cookie-stand/sales.html") {
+// } else if (pathName === "/sales.html") {
 //   createTable();
 // }
+//ENABLE TO GET GITHUB TO PULL CORRECT FILES
+const pathName = window.location.pathname;
+if (pathName === "/cookie-stand/index.html" || pathName === "/cookie-stand/") {
+  locationInfo();
+} else if (pathName === "/cookie-stand/sales.html") {
+  createTable();
+}
