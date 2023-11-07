@@ -172,18 +172,39 @@ function newLocation(event) {
   let locName = locForm.elements['location'].value;
   let minCust = locForm.elements['min-customers'].value;//pulls from form data
   let maxCust = locForm.elements['max-customers'].value;
-  let avgCookies = locForm.elements['max-customers'].value;
+  let avgCookies = locForm.elements['avg-cookies'].value;
   const newestStore = new Store(locName, minCust, maxCust, avgCookies, '1', '1', '1');
   stores.push(newestStore);
   //Remove 'totals' row from table
   table.deleteRow(-1);
   //Insert new object into table
+  let row = document.createElement('tr');
+  let cityCell = document.createElement('td');
+  cityCell.innerText = newestStore.location;
+  row.appendChild(cityCell);
+
+  let dailyTotal = 0;
+
+  for (let cookies of newestStore.cookiesPerHour) {
+    let cookiesSold = document.createElement('td');
+    cookiesSold.innerText = cookies;
+    row.appendChild(cookiesSold);
+
+    dailyTotal += cookies;
+  }
+
+  // "Daily Location Total" column for each store
+  let dailyTotalCell = document.createElement('td');
+  dailyTotalCell.innerText = dailyTotal;
+  row.appendChild(dailyTotalCell);
+
+  table.appendChild(row);
 
   //Create new 'totals' row
   createHourlyTotals(table);
 
   //Clear form
-
+  locForm.reset();
 }
 
 document.querySelector('button').addEventListener("click", newLocation);
