@@ -1,3 +1,5 @@
+
+
 const hoursArray = ["6:00am", "7:00am", "8:00am", "9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm", "4:00pm", "5:00pm", "6:00pm", "7:00pm"]
 
 const table = document.getElementById('cookie-table');
@@ -207,19 +209,23 @@ function newLocation(event) {
   locForm.reset();
 }
 
-document.querySelector('button').addEventListener("click", newLocation);
+try {
+  document.querySelector('button').addEventListener("click", newLocation);
+} catch (error) {
+  // Do nothing
+}
 
  // ENABLE TO GET VSCODE TO PULL CORRECT FILES
-// const pathName = window.location.pathname;
-// if (pathName === "/index.html" || pathName === "/") {
-//   locationInfo();
-// } else if (pathName === "/sales.html") {
-//   createTable();
-// }
-//ENABLE TO GET GITHUB TO PULL CORRECT FILES
 const pathName = window.location.pathname;
-if (pathName === "/cookie-stand/index.html" || pathName === "/cookie-stand/") {
+if (pathName === "/index.html" || pathName === "/") {
   locationInfo();
-} else if (pathName === "/cookie-stand/sales.html") {
+} else if (pathName === "/sales.html") {
   createTable();
 }
+//ENABLE TO GET GITHUB TO PULL CORRECT FILES
+// const pathName = window.location.pathname;
+// if (pathName === "/cookie-stand/index.html" || pathName === "/cookie-stand/") {
+//   locationInfo();
+// } else if (pathName === "/cookie-stand/sales.html") {
+//   createTable();
+// }
