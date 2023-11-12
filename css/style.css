@@ -68,14 +68,12 @@ header {
   align-items: center;
 }
 #copyright {
-  border: 1px solid red;
   display: flex; 
   background-color: lightgray;
   justify-content: center;
   align-items: center;
 }
 #new-store-form {
-  border: 1px solid red;
   display: inline;
   flex-direction: row; 
   justify-content: space-between;
