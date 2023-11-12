@@ -23,10 +23,60 @@
 main section {
 padding: 10px;
 }
-main section h2 {
-
+body {
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
-
-main section p {
-
+header {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  max-width: none;
+}
+.title {
+  display: flex;
+  background-color: black;
+  color: salmon;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Righteous', sans-serif;
+  font-style: italic;
+  font-size: larger;
+}
+.page-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: .5rem;
+  background-color: salmon;
+}
+.page-links a {
+  text-decoration: none;
+  color: black;
+}
+.page-links a:hover {
+  text-decoration: underline;
+}
+#salmon {
+  border-bottom: 1px solid black;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#copyright {
+  border: 1px solid red;
+  display: flex; 
+  background-color: lightgray;
+  justify-content: center;
+  align-items: center;
+}
+#new-store-form {
+  border: 1px solid red;
+  display: inline;
+  flex-direction: row; 
+  justify-content: space-between;
 }
