@@ -1,6 +1,6 @@
 
 
-const hoursArray = ["6:00am", "7:00am", "8:00am", "9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm", "4:00pm", "5:00pm", "6:00pm", "7:00pm"]
+const hoursArray = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
 
 const table = document.getElementById('cookie-table');
 
@@ -53,7 +53,7 @@ function createTable() {
   let table = document.createElement('table');
   table.classList.add('cookie-table');
   table.id = 'cookie-table';
-  document.body.appendChild(table);
+  document.querySelector('main').appendChild(table);
 
   let headerRow = document.createElement('tr');
 
@@ -70,7 +70,7 @@ function createTable() {
 
   // "Daily Location Total" column header
   let dailyTotalHeader = document.createElement('th');
-  dailyTotalHeader.innerText = 'Daily Location Total';
+  dailyTotalHeader.innerText = 'Location Totals';
   headerRow.appendChild(dailyTotalHeader);
 
   table.appendChild(headerRow);
@@ -107,7 +107,7 @@ function createHourlyTotals(table) {
     // Display hourly totals across all stores
     let totalsRow = document.createElement('tr');
     let totalsCell = document.createElement('td');
-    totalsCell.innerText = 'Totals';
+    totalsCell.innerText = 'Hourly Totals for All Locations';
     totalsRow.appendChild(totalsCell);
   
     // Hourly totals array
@@ -216,16 +216,16 @@ try {
 }
 
  // ENABLE TO GET VSCODE TO PULL CORRECT FILES
-// const pathName = window.location.pathname;
-// if (pathName === "/index.html" || pathName === "/") {
-//   locationInfo();
-// } else if (pathName === "/sales.html") {
-//   createTable();
-// }
-//ENABLE TO GET GITHUB TO PULL CORRECT FILES
 const pathName = window.location.pathname;
-if (pathName === "/cookie-stand/index.html" || pathName === "/cookie-stand/") {
+if (pathName === "/index.html" || pathName === "/") {
   locationInfo();
-} else if (pathName === "/cookie-stand/sales.html") {
+} else if (pathName === "/sales.html") {
   createTable();
 }
+//ENABLE TO GET GITHUB TO PULL CORRECT FILES
+// const pathName = window.location.pathname;
+// if (pathName === "/cookie-stand/index.html" || pathName === "/cookie-stand/") {
+//   locationInfo();
+// } else if (pathName === "/cookie-stand/sales.html") {
+//   createTable();
+// }

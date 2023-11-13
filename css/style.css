@@ -67,14 +67,95 @@ header {
   justify-content: center;
   align-items: center;
 }
+
+#new-store-form {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: 2%;
+  margin-left: 1%;
+  margin-right: 1%;
+  flex-direction: row; 
+}
+#add-store {
+  color: salmon;
+}
+#dataContainers {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5rem;
+}
 #copyright {
   display: flex; 
+  bottom: 0;  
+  width: 100%;
   background-color: lightgray;
   justify-content: center;
   align-items: center;
 }
-#new-store-form {
-  display: inline;
-  flex-direction: row; 
-  justify-content: space-between;
+
+
+/* Define a class for your table */
+.cookie-table {
+  border-collapse: collapse;
+
+  width: 90%;
+  margin: 1% auto; 
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Apply styles to table headers (th) */
+.cookie-table th {
+  border: 1px solid black;
+  color: white;
+  padding: .1rem;
+  text-align: center;
+  background-color: grey;
+}
+
+/* Apply styles to table cells (td=data cells) */
+.cookie-table td {
+  border: 1px solid black;
+  color: black;
+  padding: 1%;
+  text-align: left;
+  font-weight:bold;
+  background-color: salmon;
+}
+
+/* Style the "Daily Location Total" cell differently */
+.cookie-table td:last-child {
+  background-color: grey;
+  color: white;
+  text-align: center;
+}
+.cookie-table :last-child td {
+  background-color: grey;
+  color: white;
+}
+h2 {
+  color: salmon;
+  text-shadow: 1px 1px 1px grey;
+}
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#welcome {
+  border: 10px solid black;
+  border-radius: 20%;
+  align-content: center;
+  justify-content: center;
+  width: 35rem;
+  height: 30rem;
+  float: right;
+  margin-right: 30%;
+  margin-top: -41%;
+  margin-left: 25%;
+  padding: 5%;
+  font-size: 1.2rem;
+  background-color: salmon;
+  color: white;
+  text-shadow: 1px 1px 1px grey;
+
 }
