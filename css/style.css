@@ -1,11 +1,9 @@
-/* Define a class for your table */
 .cookie-table {
   border-collapse:collapse;
   width: 50%;
   margin: 1vw;
 }
 
-/* Apply styles to table headers (th) */
 .cookie-table th {
   border: 1px solid; color: black;
   padding: .5vw;
@@ -13,7 +11,6 @@
   background-color: lightgrey;
 }
 
-/* Apply styles to table cells (td) */
 .cookie-table td {
   border: 1px solid; color: black;
   padding: .5vw;
@@ -23,17 +20,20 @@
 main section {
 padding: 10px;
 }
+
 body {
   width: 100%;
   max-width: none;
   margin: 0;
 }
+
 header {
   width: 100%;
   box-sizing: border-box;
   margin: 0;
   max-width: none;
 }
+
 .title {
   display: flex;
   background-color: black;
@@ -45,6 +45,7 @@ header {
   font-style: italic;
   font-size: larger;
 }
+
 .page-links {
   display: flex;
   align-items: center;
@@ -53,13 +54,16 @@ header {
   padding: .5rem;
   background-color: salmon;
 }
+
 .page-links a {
   text-decoration: none;
   color: black;
 }
+
 .page-links a:hover {
   text-decoration: underline;
 }
+
 #salmon {
   border-bottom: 1px solid black;
   padding-bottom: 2rem;
@@ -75,14 +79,17 @@ header {
   margin-right: 1%;
   flex-direction: row; 
 }
+
 #add-store {
   color: salmon;
 }
+
 #dataContainers {
   display: flex;
   justify-content: space-around;
   margin: 0.5rem;
 }
+
 #copyright {
   display: flex; 
   bottom: 0;  
@@ -93,7 +100,6 @@ header {
 }
 
 
-/* Define a class for your table */
 .cookie-table {
   border-collapse: collapse;
 
@@ -104,8 +110,6 @@ header {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-/* Apply styles to table headers (th) */
 .cookie-table th {
   border: 1px solid black;
   color: white;
@@ -114,7 +118,6 @@ header {
   background-color: grey;
 }
 
-/* Apply styles to table cells (td=data cells) */
 .cookie-table td {
   border: 1px solid black;
   color: black;
@@ -124,23 +127,26 @@ header {
   background-color: salmon;
 }
 
-/* Style the "Daily Location Total" cell differently */
 .cookie-table td:last-child {
   background-color: grey;
   color: white;
   text-align: center;
 }
+
 .cookie-table :last-child td {
   background-color: grey;
   color: white;
 }
+
 h2 {
   color: salmon;
   text-shadow: 1px 1px 1px grey;
 }
+
 p {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 #welcome {
   border: 10px solid black;
   border-radius: 20%;
@@ -150,12 +156,11 @@ p {
   height: 30rem;
   float: right;
   margin-right: 30%;
-  margin-top: -41%;
+  margin-top: -35%;
   margin-left: 25%;
   padding: 5%;
   font-size: 1.2rem;
   background-color: salmon;
   color: white;
   text-shadow: 1px 1px 1px grey;
-
 }
